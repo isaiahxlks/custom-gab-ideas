@@ -1,0 +1,39 @@
+using System;
+using System.IO;
+using System.Text.Json;
+
+public class PrivateConfig
+{
+    public string ApiKey { get; set; }
+    public string LoreMode { get; set; }
+    public bool EnableChaosSurge { get; set; }
+
+    private static readonly string ConfigPath = "config/private_config.json";
+
+    public static PrivateConfig Load()
+    {
+        if (!File.Exists(ConfigPath))
+        {
+            Console.WriteLine("⚠️ Config file not found. Creating default...");
+            var defaultConfig = new PrivateConfig
+            {
+                ApiKey = "your-api-key-here",
+                LoreMode = "standard",
+                EnableChaosSurge = false
+            };
+            defaultConfig.Save();
+            return defaultConfig;
+        }
+
+        string json = File.ReadAllText(ConfigPath);
+        return JsonSerializer.Deserialize<PrivateConfig>(json);
+    }
+
+    public void Save()
+    {
+        string json = JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+        Directory.CreateDirectory(Path.GetDirectoryName(ConfigPath));
+        File.WriteAllText(ConfigPath, json);
+        Console.WriteLine("✅ Config saved securely.");
+    }
+}
