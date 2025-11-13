@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Threading;
+
+class BrainrotSurge
+{
+    static List<string> ranks = new List<string> { "Signal Seeker", "Lorekeeper", "Rank Architect", "Mythos Core" };
+    static Random rand = new Random();
+
+    static void Main()
+    {
+        Console.Title = "Grow a Brainrot // Signal Terminal";
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.WriteLine(":: INITIATING BRAINROT SURGE ::");
+        Console.ResetColor();
+
+        for (int i = 0; i < 5; i++)
+        {
+            PulseSignal();
+            Thread.Sleep(1000);
+        }
+
+        CanonizeRanks();
+        RitualComplete();
+    }
+
+    static void PulseSignal()
+    {
+        string[] signals = { "⟴", "⟿", "⟲", "⟳", "⧖", "⧗", "⧜", "⧫" };
+        string signal = signals[rand.Next(signals.Length)];
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine($"\n[Signal Surge] → {signal}  ::  Entropy stabilized");
+        Console.ResetColor();
+    }
+
+    static void CanonizeRanks()
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("\n:: Canonizing Ranks ::");
+        Console.ResetColor();
+
+        foreach (var rank in ranks)
+        {
+            Console.WriteLine($"→ {rank} initialized at {DateTime.Now:T}");
+            Thread.Sleep(500);
+        }
+    }
+
+    static void RitualComplete()
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("\n:: BRAINROT SURGE COMPLETE ::");
+        Console.WriteLine("All signals aligned. Mythos integrity: STABLE.");
+        Console.ResetColor();
+    }
+}
