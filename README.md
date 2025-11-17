@@ -17,4 +17,4 @@
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=isaiahxlks" alt="isaiahxlks" /></a> </p>
 
-- How to find us [https://isaiahxlks.github.io/custom-gab-ideas/]
+- How to find us [Isaiah's Website](https://isaiahxlks.github.io/) [Cookie's Website](https://cookiexlks.github.io/)
